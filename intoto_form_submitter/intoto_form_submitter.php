@@ -22,8 +22,8 @@ function wpcf7_send_to_intoto ($WPCF7_ContactForm) {
 	#Email/email
 	#MobilePhone / phone
 	#FirstName / name
-	$url = 'https://ormil_staging.into.to/react/contact_us_form';
-#	$url = 'http://ormil.into.to/react/contact_us_form';
+#	$url = 'https://ormil_staging.into.to/react/contact_us_form';
+	$url = 'https://ormil.into.to/react/contact_us_form';
 
 	// use key 'http' even if you send the request to https://...
 	$options = array(
