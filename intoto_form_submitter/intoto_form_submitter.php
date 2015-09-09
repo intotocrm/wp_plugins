@@ -23,13 +23,17 @@ function wpcf7_send_to_intoto ($WPCF7_ContactForm) {
 	#FirstName / name
 #	$url = 'https://ormil_staging.into.to/react/contact_us_form';
 	if (isset($data['POST_DATA'])){
-		$url = $data['POST_DATA'];//'https://ormil.into.to/react/contact_us_form';
+		$url = $data['POST_DATA'];//'https://ormil.into.to/react/contact_us_form?XDEBUG_SESSION_START=netbeans-xdebug';
 #		file_put_contents("/tmp/wpcf8.debug", "sending: to $url",  FILE_APPEND);
-#		file_put_contents("/tmp/wpcf8.debug", print_r($data, true),  FILE_APPEND);
+		foreach ($data as $key=>$item)
+			$data[$key] = stripcslashes ($item);
+		#file_put_contents("/tmp/wpcf8.debug", print_r($data, true),  FILE_APPEND);
 		// use key 'http' even if you send the request to https://...
 		$options = array(
 			'http' => array(
-				'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+				#'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+				'header'  => "Content-type: application/x-www-form-urlencoded  accept-charset=UTF-8\r\n",
+				#'header'  => "Content-type: atext/plain; charset=UTF-8\r\n",
 				'method'  => 'POST',
 				'content' => http_build_query($data),
 			),
